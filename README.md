@@ -1,5 +1,5 @@
 
-# GitHubActionsTest
+# GitHubActions-Test
 
 > 一个用 GitHub Actions 把 Python 小工具自动打包成 Windows `.exe` 的试验仓库。
 > 下载即用，不用本地装 Python。
