@@ -32,7 +32,7 @@
 
 ## 打包说明（GitHub Actions / 本地）
 
-推荐使用 PyInstaller 生成单文件可执行（跨��台需在对应平台打包）：
+推荐使用 PyInstaller 生成单文件可执行（跨平台需在对应平台打包）：
 
 基本命令（本地或 CI）：
 
@@ -67,14 +67,3 @@ pyinstaller --noconfirm --onefile --name pyside_timer pyside_timer/timer.py
 1. 打开仓库的 Actions -> 选择对应运行 -> 在页面底部找到 Artifacts
 2. 下载平台对应压缩包并解压，运行其中的可执行文件
 
-## 调试建议
-
-- 若打包后运行失败，优先在同平台的虚拟环境里用 `python pyside_timer/timer.py` 运行，确认运行时错误，再根据错误补充 PyInstaller 的包含项。
-- 我可以根据具体的运行错误帮你调整 PyInstaller 参数或生成 .spec 文件以包含缺失资源。
-
-## 后续增强（可选）
-
-- 增加结束提示音（依赖 playsound 或系统 API）
-- 增加任务列表（记录多个计时任务）
-- 生成平台安装包（.msi / .dmg）并自动发布到 Releases
-- 界面优化与主题支持
