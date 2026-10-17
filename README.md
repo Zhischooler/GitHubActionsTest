@@ -1,7 +1,7 @@
 
 # GitHubActions-Test
 
-> 一个用 GitHub Actions 把 Python 小工具自动打包成 Windows `.exe` 的试验仓库。
+> 一个用 GitHub Actions 把 Python 小工具自动打包 的试验仓库。
 > 下载即用，不用本地装 Python。
 
 ---
@@ -19,8 +19,8 @@
 1. 打开 Actions 页面
 2. 点击 Run workflow
 3. 等运行变绿
-4. 在运行页面底部 Artifacts 下载 `notebook-exe.zip`
-5. 解压得到 `notebook.exe`，双击运行
+4. 在运行页面底部 Artifacts 下载 `xxx.zip`
+5. 解压得到 `xxx.exe`，双击运行
 
 ---
 
