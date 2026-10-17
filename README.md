@@ -26,9 +26,9 @@
 
 ## 📁 使用步骤
 
-见steps目录
+见[steps](./steps)目录
 
 
 ## 📄 License
 
-见 LICENSE 文件。
+MIT
