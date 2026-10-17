@@ -38,6 +38,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libgl1 libglib2.0-0 libxcb1 libx11-6 libxext6 libxrender1 libxrandr2 libsm6 libxss1 || true
+        shell: bash
 
       - name: Install dependencies
         run: |
@@ -45,20 +46,48 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
           pip install build
+        shell: bash
 
       - name: Build wheel / sdist
         run: |
           python -m build --wheel --no-isolation || true
+        shell: bash
 
-      - name: Build executable with PyInstaller
+      - name: Ensure dist exists (Windows)
+        if: runner.os == 'Windows'
         run: |
-          mkdir -p dist || true
-          pyinstaller --noconfirm --onefile --name pyside_timer pyside_timer/timer.py || true
+          if (!(Test-Path -Path dist)) { New-Item -ItemType Directory -Path dist | Out-Null }
+        shell: powershell
 
-      - name: List dist
+      - name: Ensure dist exists (Unix)
+        if: runner.os != 'Windows'
         run: |
-          echo "Contents of dist/"
-          ls -la dist || true
+          mkdir -p dist
+        shell: bash
+
+      - name: Build executable with PyInstaller (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          pyinstaller --noconfirm --onefile --name pyside_timer pyside_timer/timer.py
+        shell: powershell
+
+      - name: Build executable with PyInstaller (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          pyinstaller --noconfirm --onefile --name pyside_timer pyside_timer/timer.py
+        shell: bash
+
+      - name: List dist (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          if (Test-Path dist) { Get-ChildItem -Force dist } else { Write-Host 'dist not found' }
+        shell: powershell
+
+      - name: List dist (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          if [ -d dist ]; then ls -la dist; else echo "dist not found"; fi
+        shell: bash
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
