@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> 项目已停止维护，请移步至[GitHubActionsSample (tech-shrimp开发)](github.com/tech-shrimp/GitHubActionsSample)
+> 项目已停止维护，请移步至[GitHubActionSample (tech-shrimp开发)](github.com/tech-shrimp/GitHubActionSample)
 
 # GitHubActions-Test
 
