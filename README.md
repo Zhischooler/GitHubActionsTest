@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 项目已停止维护，请移步至[GitHubActionsSample (tech-shrimp开发)](github.com/tech-shrimp/GitHubActionsSample)
+
 # GitHubActions-Test
 
 > 一个用 GitHub Actions 把 Python 小工具自动打包 的试验仓库。
